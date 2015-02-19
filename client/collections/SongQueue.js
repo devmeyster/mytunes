@@ -5,11 +5,22 @@ var SongQueue = Songs.extend({
 
   },
 
+  // checkPlayFirst: function(){
+  //   console.log(this)
+  //   if(this.length === 1){
+  //     this.playFirst();
+  //   }
+  // },
+
   playFirst: function(){
-    console.log("Song Queue Collection: playFirst()")
-    this.at(0).trigger("play", this);
-    //  console.log();
-    //console.log("Play first")
+    this.at(0).trigger("play", this.at(0));
+  },
+
+  ended: function(){
+    this.shift();
+    if (this.length > 0){
+      this.playFirst();
+    }
   }
 
 
