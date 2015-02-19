@@ -2,7 +2,7 @@
 var AppView = Backbone.View.extend({
 
   initialize: function(params){
-    this.playerView = new PlayerView({model: this.model.get('currentSong')});
+    this.playerView = new PlayerView({model: this.model.get('currentSong'), collection: this.model.get('songQueue') });
     this.libraryView = new LibraryView({collection: this.model.get('library')});
     this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')});
     // change:currentSong - this is Backbone's way of allowing you to filter events to
